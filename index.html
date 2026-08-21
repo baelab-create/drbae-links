@@ -158,19 +158,6 @@
   .btn-copy:hover{background:#dcebf8;}
   .btn-copy.done{background:#e6f4ec;border-color:#bcdfc9;color:#2f6b45;}
 
-  /* ---------- 제품 컬러 가이드 ---------- */
-  .prodgrid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-    gap:9px;margin-top:16px;
-  }
-  .prodrow{
-    display:flex;align-items:center;gap:9px;padding:10px 12px;
-    background:#fbfcfe;border:1px solid var(--line);border-radius:10px;
-  }
-  .prodrow .nm{font-size:.86rem;font-weight:600;}
-  .prodrow .ct{font-size:.74rem;color:var(--sub);margin-left:auto;white-space:nowrap;}
-  .prodnote{margin-top:12px;font-size:.82rem;color:var(--sub);}
-
   /* ---------- footer ---------- */
   footer{
     margin-top:52px;background:var(--navy);color:#b9cfe4;
@@ -325,7 +312,7 @@ details.inci > summary::before,
   <div class="secs">
 
     <!-- ================= 01 브랜드 · 제품 ================= -->
-    <details class="sec" open>
+    <details class="sec">
       <summary>
         <span class="sec-no">01</span>
         <span class="sec-meta">
@@ -521,37 +508,6 @@ details.inci > summary::before,
           </article>
 
         </div>
-      </div>
-    </details>
-
-    <!-- ================= 04 제품 컬러 가이드 ================= -->
-    <details class="sec">
-      <summary>
-        <span class="sec-no">04</span>
-        <span class="sec-meta">
-          <h2>제품 컬러 가이드</h2>
-          <p>모든 자료에서 같은 색으로 표기됩니다</p>
-        </span>
-        <span class="sec-count">10종</span>
-        <span class="sec-click"></span>
-      </summary>
-      <div class="sec-body">
-        <div class="prodgrid">
-          <div class="prodrow"><span class="dbp dbp-blue"><i></i>엑소토카인 블루</span><span class="ct">페이스 · 부스팅</span></div>
-          <div class="prodrow"><span class="dbp dbp-pink"><i></i>피디로엔 핑크</span><span class="ct">페이스 · 진정</span></div>
-          <div class="prodrow"><span class="dbp dbp-brown"><i></i>토코포르테 브라운</span><span class="ct">페이스 · 두피</span></div>
-          <div class="prodrow"><span class="dbp dbp-liquid"><i></i>리퀴드 마스크</span><span class="ct">소프트 필링</span></div>
-          <div class="prodrow"><span class="dbp dbp-cali"><i></i>칼리파우더</span><span class="ct">동결건조 파우더</span></div>
-          <div class="prodrow"><span class="dbp dbp-gel"><i></i>에센스겔</span><span class="ct">매뉴얼 베이스</span></div>
-          <div class="prodrow"><span class="dbp dbp-black"><i></i>엑소토카인 블랙</span><span class="ct">두피 전용 앰플</span></div>
-          <div class="prodrow"><span class="dbp dbp-scalp"><i></i>스칼프 부스터</span><span class="ct">두피 · 샵 전용</span></div>
-          <div class="prodrow"><span class="dbp dbp-shampoo"><i></i>엑소토카인 샴푸</span><span class="ct">두피 · 홈케어</span></div>
-          <div class="prodrow"><span class="dbp dbp-mjx"><i></i>마이크로젝션</span><span class="ct">전달 기기</span></div>
-        </div>
-        <p class="prodnote">
-          칼리파우더는 <b>동결건조 백색 파우더</b>라 점선 원, 에센스겔은 <b>투명 겔</b>이라 실선 사각으로
-          표기합니다. 나머지는 제품명의 색을 그대로 씁니다.
-        </p>
       </div>
     </details>
 
