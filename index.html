@@ -181,8 +181,13 @@
     .card-foot{padding:12px 16px 15px;}
     .notice{padding:18px 16px;}
     .sec-body{padding:2px 14px 18px;}
-    details.sec > summary{padding:15px 14px;gap:11px;}
-    .sec-count{display:none;}
+    details.sec > summary{padding:15px 12px;gap:9px;}
+    /* 좁은 화면에서도 개수 표시는 유지 — 크기만 줄임 */
+    .sec-count{font-size:.72rem;padding:3px 8px;}
+    .sec-click{font-size:.7rem;padding:6px 11px;}
+    .sec-no{flex:0 0 34px;height:34px;border-radius:10px;font-size:.84rem;}
+    .sec-meta h2{font-size:1rem;}
+    .sec-meta p{font-size:.8rem;}
   }
   @media(prefers-reduced-motion:reduce){
     *{transition:none !important;}
