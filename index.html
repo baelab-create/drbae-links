@@ -122,6 +122,27 @@
   details.sec[open] .sec-click::before{content:"닫기";}
   .sec-body{padding:2px 18px 20px;border-top:1px solid var(--line);}
 
+
+  /* ---------- 00 고객 상담용: 아코디언 없이 바로 연결되는 행 ---------- */
+  a.seclink{
+    display:flex;align-items:center;gap:13px;
+    padding:17px 18px;min-height:52px;
+    text-decoration:none;color:inherit;
+    transition:background .15s,box-shadow .18s,border-color .18s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  a.seclink:hover{background:#fffaf0;}
+  .sec-go{
+    flex:0 0 auto;font-size:.72rem;font-weight:700;letter-spacing:.02em;
+    color:#fff;background:var(--gold-ink);border:1px solid var(--gold-ink);
+    border-radius:999px;padding:7px 14px;white-space:nowrap;
+  }
+  .sec-go::after{content:" ↗";}
+  @media(max-width:520px){
+    a.seclink{padding:15px 12px;gap:9px;}
+    .sec-go{font-size:.7rem;padding:6px 12px;}
+  }
+
   /* ---------- link cards ---------- */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px;}
   @media(max-width:760px){ .grid{grid-template-columns:1fr;} }
@@ -294,15 +315,15 @@ details[open] .dbc-native,
 </style>
 <style>
   /* ---------- 00 고객 상담용 — 원장님 자료와 시각적으로 분리 ---------- */
-  details.sec-cust{border-color:#e6d7b3;background:linear-gradient(180deg,#fffdf8,#fff);}
-  details.sec-cust[open]{border-color:#dcc48f;box-shadow:0 6px 22px rgba(143,106,34,.14);}
-  details.sec-cust .sec-no{background:#f6edda;color:var(--gold-ink);}
-  details.sec-cust .sec-count{background:#f6edda;border-color:#e6d7b3;color:var(--gold-ink);}
-  details.sec-cust .sec-click{color:var(--gold-ink);background:#f6edda;border-color:#e6d7b3;}
-  details.sec-cust .grid{grid-template-columns:1fr;}
-  details.sec-cust .btn-open{background:var(--gold-ink);}
-  details.sec-cust .btn-open:hover{background:#7a5c18;}
-  details.sec-cust .btn-copy{background:#f6edda;border-color:#e6d7b3;color:var(--gold-ink);}
+  .sec-cust{border-color:#e6d7b3;background:linear-gradient(180deg,#fffdf8,#fff);}
+  .sec-cust:hover{border-color:#dcc48f;box-shadow:0 6px 22px rgba(143,106,34,.14);}
+  .sec-cust .sec-no{background:#f6edda;color:var(--gold-ink);}
+  .sec-cust .sec-count{background:#f6edda;border-color:#e6d7b3;color:var(--gold-ink);}
+  .sec-cust .sec-click{color:var(--gold-ink);background:#f6edda;border-color:#e6d7b3;}
+  .sec-cust .grid{grid-template-columns:1fr;}
+  .sec-cust .btn-open{background:var(--gold-ink);}
+  .sec-cust .btn-open:hover{background:#7a5c18;}
+  .sec-cust .btn-copy{background:#f6edda;border-color:#e6d7b3;color:var(--gold-ink);}
   .cust-tag{
     display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;
     color:#fff;background:var(--gold-ink);border-radius:6px;padding:4px 10px;margin-bottom:9px;
@@ -351,47 +372,15 @@ details[open] .dbc-native,
 
   <div class="secs">
 
-    <!-- ================= 00 고객 상담용 ================= -->
-    <details class="sec sec-cust">
-      <summary>
+    <!-- ================= 00 고객 상담용 (아코디언 없이 바로 연결) ================= -->
+    <a class="sec sec-cust seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
         <span class="sec-no">00</span>
         <span class="sec-meta">
           <h2>고객 상담용 자료</h2>
           <p>관리실에서 고객님께 직접 보여드리는 페이지</p>
         </span>
-        <span class="sec-count">1개</span>
-        <span class="sec-click"></span>
-      </summary>
-      <div class="sec-body">
-        <div class="grid">
-
-          <article class="card">
-            <a class="card-link" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
-              <span class="thumb"><img src="assets/thumb-customer.jpg" alt="닥터배 스킨부스터 고객 안내 페이지" loading="lazy"></span>
-              <div class="card-body">
-                <span class="cust-tag">고객에게 보여드리는 자료</span>
-                <h3>닥터배 스킨부스터 — 고객 안내</h3>
-                <p>브랜드 · 배원규 교수 소개 → 왜 스킨부스터인가 → 5ml 바이알 6종 → 문제성 피부 관리 → 슬로우에이징(마이크로젝션) → FAQ. 아이패드 화면에 맞춘 큰 글씨 · 아코디언 구성</p>
-                <div class="card-prods">
-                  <span class="dbp dbp-blue"><i></i>블루</span>
-                  <span class="dbp dbp-pink"><i></i>핑크</span>
-                  <span class="dbp dbp-liquid"><i></i>리퀴드 마스크</span>
-                  <span class="dbp dbp-brown"><i></i>토코포르테</span>
-                  <span class="dbp dbp-cali"><i></i>칼리파우더</span>
-                  <span class="dbp dbp-black"><i></i>블랙</span>
-                  <span class="dbp dbp-mjx"><i></i>마이크로젝션</span>
-                </div>
-              </div>
-            </a>
-            <div class="card-foot">
-              <a class="btn-open" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">열기</a>
-              <button class="btn-copy" data-url="https://baelab-create.github.io/drbae-customer/">링크 복사</button>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </details>
+      <span class="sec-go">바로가기</span>
+    </a>
 
     <!-- ================= 01 브랜드 · 제품 ================= -->
     <details class="sec">
