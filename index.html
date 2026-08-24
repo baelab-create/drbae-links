@@ -14,8 +14,8 @@
 <meta property="og:url" content="https://baelab-create.github.io/drbae-links/">
 <meta property="og:title" content="닥터배 자료 모음 — 링크 정리">
 <meta property="og:description" content="고객 상담용 안내 1종 + 원장님 전용 교육자료 8종 — 한 페이지에">
-<meta property="og:image" content="https://baelab-create.github.io/drbae-links/assets/og-links.jpg">
-<meta property="og:image:secure_url" content="https://baelab-create.github.io/drbae-links/assets/og-links.jpg">
+<meta property="og:image" content="https://baelab-create.github.io/drbae-links/assets/og-links-v2.jpg">
+<meta property="og:image:secure_url" content="https://baelab-create.github.io/drbae-links/assets/og-links-v2.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="닥터배 자료 모음 — 링크 정리">
 <meta name="twitter:description" content="고객 상담용 안내 1종 + 원장님 전용 교육자료 8종">
-<meta name="twitter:image" content="https://baelab-create.github.io/drbae-links/assets/og-links.jpg">
+<meta name="twitter:image" content="https://baelab-create.github.io/drbae-links/assets/og-links-v2.jpg">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -141,6 +141,28 @@
   @media(max-width:520px){
     a.seclink{padding:15px 12px;gap:9px;}
     .sec-go{font-size:.7rem;padding:6px 12px;}
+  }
+
+  /* ---------- 히어로 대표 이미지 ---------- */
+  .hero-shot{
+    max-width:720px;margin:26px auto 0;border-radius:14px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.22);box-shadow:0 10px 30px rgba(0,0,0,.22);
+    background:#fff;
+  }
+  .hero-shot img{display:block;width:100%;height:auto;}
+  @media(max-width:520px){ .hero-shot{margin-top:20px;border-radius:12px;} }
+
+  /* ---------- 공개 / 비공개 라벨 ---------- */
+  .sec-tag{
+    display:inline-block;vertical-align:middle;
+    font-size:.7rem;font-weight:800;letter-spacing:.02em;line-height:1.5;
+    border-radius:999px;padding:2px 9px;margin-left:6px;white-space:nowrap;
+  }
+  .tag-open{color:#fff;background:var(--gold-ink);}
+  .tag-priv{color:#5b6472;background:#eef1f5;border:1px solid #dde3ea;}
+  @media(max-width:520px){
+    .sec-tag{font-size:.69rem;padding:2px 8px;margin-left:0;margin-top:3px;}
+    .sec-meta h2{line-height:1.45;}
   }
 
   /* ---------- link cards ---------- */
@@ -341,6 +363,9 @@ details[open] .dbc-native,
       <small>고객 상담용 안내 · 소개 · 제품 라인업 · 교육자료 · 관리 프로그램</small>
     </h1>
     <div class="hero-rule"></div>
+    <figure class="hero-shot">
+      <img src="assets/hero-lineup.jpg" alt="닥터배 스킨부스터 6종 — 5ml 유리 바이알" width="1600" height="615">
+    </figure>
     <p class="hero-note">보고 싶은 항목을 눌러서 펼쳐 보세요.</p>
   </div>
 </header>
@@ -376,7 +401,7 @@ details[open] .dbc-native,
     <a class="sec sec-cust seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
         <span class="sec-no">00</span>
         <span class="sec-meta">
-          <h2>고객 상담용 자료</h2>
+          <h2>고객 상담용 자료 <span class="sec-tag tag-open">고객 공개 · 설명용</span></h2>
           <p>관리실에서 고객님께 직접 보여드리는 페이지</p>
         </span>
       <span class="sec-go">바로가기</span>
@@ -387,7 +412,7 @@ details[open] .dbc-native,
       <summary>
         <span class="sec-no">01</span>
         <span class="sec-meta">
-          <h2>브랜드 · 제품</h2>
+          <h2>브랜드 · 제품 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
           <p>브랜드와 제품을 처음 안내할 때</p>
         </span>
         <span class="sec-count">4개</span>
@@ -476,7 +501,7 @@ details[open] .dbc-native,
       <summary>
         <span class="sec-no">02</span>
         <span class="sec-meta">
-          <h2>마이크로젝션 교육자료</h2>
+          <h2>마이크로젝션 교육자료 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
           <p>기기 운용 원리와 관리 프로토콜</p>
         </span>
         <span class="sec-count">2개</span>
@@ -531,7 +556,7 @@ details[open] .dbc-native,
       <summary>
         <span class="sec-no">03</span>
         <span class="sec-meta">
-          <h2>관리 프로그램</h2>
+          <h2>관리 프로그램 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
           <p>고민별 · 계절별로 샵에서 바로 쓰는 구성</p>
         </span>
         <span class="sec-count">2개</span>
