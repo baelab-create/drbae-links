@@ -40,6 +40,9 @@
     --plum:#6b4fa1;          /* 01~03 원장님 전달용 자료 그룹 */
     --plum-tint:#f3effa;
     --plum-line:#ddd2f0;
+    --leaf:#2f7a52;          /* STEP 1~4 구매 · 납품 링크 그룹 */
+    --leaf-tint:#e9f4ee;
+    --leaf-line:#c4e0cf;
     --bg:#f7f9fb;
     --card:#ffffff;
   }
@@ -88,7 +91,19 @@
   }
 
   /* ---------- 아코디언 섹션 ---------- */
-  .secs{margin:26px 0 0;display:flex;flex-direction:column;gap:12px;}
+  .secs{margin:26px 0 0;display:flex;flex-direction:column;gap:30px;}
+  .grp{display:flex;flex-direction:column;gap:11px;}
+  .grp-label{
+    display:flex;align-items:center;gap:8px;padding-left:3px;margin-bottom:1px;
+    font-size:.79rem;font-weight:800;letter-spacing:.02em;color:var(--sub);
+  }
+  .grp-label::before{content:"";flex:0 0 auto;width:15px;height:3px;border-radius:2px;background:#c8d2de;}
+  .grp-cust .grp-label::before{background:var(--gold-ink);}
+  .grp-share .grp-label::before{background:var(--plum);}
+  .grp-edu .grp-label::before{background:var(--blue);}
+  .grp-step .grp-label::before{background:var(--leaf);}
+  .grp-appx .grp-label::before{background:#9aa3ae;}
+  @media(max-width:520px){ .secs{gap:24px;} }
   details.sec{
     background:var(--card);border:1px solid var(--line);border-radius:16px;
     overflow:hidden;box-shadow:0 1px 2px rgba(14,42,71,.04);
@@ -398,6 +413,19 @@ details[open] .dbc-native,
   .sec-share .sec-go{background:var(--plum);border-color:var(--plum);}
   .sec-share .row-copy{background:var(--plum-tint);border-color:var(--plum-line);color:var(--plum);}
   .sec-share .row-copy:hover{background:#ece4f8;}
+  /* STEP 1~4 — 구매 · 납품 링크 */
+  .sec-step{border-color:var(--leaf-line);background:linear-gradient(180deg,#fbfefc,#fff);}
+  .sec-step:hover{border-color:#a9d3bc;box-shadow:0 6px 22px rgba(47,122,82,.13);}
+  .sec-step > a.seclink:hover{background:#f6fbf8;}
+  .sec-step .sec-no{
+    flex-direction:column;gap:1px;line-height:1;font-size:.95rem;
+    background:var(--leaf-tint);color:var(--leaf);
+  }
+  .sec-step .sec-no small{font-size:.46rem;font-weight:800;letter-spacing:.06em;opacity:.85;}
+  .sec-step .sec-go{background:var(--leaf);border-color:var(--leaf);}
+  .sec-step .row-copy{background:var(--leaf-tint);border-color:var(--leaf-line);color:var(--leaf);}
+  .sec-step .row-copy:hover{background:#dcefe4;}
+  .sec-step .tag-ext{color:#fff;background:var(--leaf);border-color:var(--leaf);}
   @media(max-width:520px){
     .linkrow > a.seclink{padding-right:4px;gap:8px;}
     .linkrow .sec-go{font-size:0;padding:7px 9px;}       /* 좁은 화면에선 ↗ 아이콘만 */
@@ -467,7 +495,7 @@ details[open] .dbc-native,
     </p>
     <p class="notice-rule">
       <b>고객에게 보여드리는 자료는 「00 고객 상담용」 하나뿐입니다.</b>
-      01~06과 부록 자료는 원장님 · 관리사 전용이므로 고객에게 펼쳐 보이지 마십시오.
+      01~05와 STEP · 부록 자료는 원장님 · 관리사 전용이므로 고객에게 펼쳐 보이지 마십시오.
     </p>
     <p class="notice-rule" style="border-top:0;padding-top:0;margin-top:6px;">
       오프라인 비공개 교육자료 · 유출 및 공유 금지 — 링크 전달은 협약 샵 관계자에 한해 주십시오.
@@ -476,165 +504,218 @@ details[open] .dbc-native,
 
   <div class="secs">
 
-    <!-- ================= 00 고객 상담용 (아코디언 없이 바로 연결) ================= -->
-    <a class="sec sec-cust seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
-        <span class="sec-no">00</span>
-        <span class="sec-meta">
-          <h2>고객 상담용 자료 <span class="sec-tag tag-open">고객 공개 · 설명용</span></h2>
-          <p>관리실에서 고객님께 직접 보여드리는 페이지</p>
-        </span>
-      <span class="sec-go">바로가기</span>
-    </a>
-
-    <!-- ================= 01~06 자료 바로가기 ================= -->
-    <div class="sec linkrow sec-share">
-      <a class="seclink" href="https://baelab-create.github.io/drbae-guide/" target="_blank" rel="noopener">
-        <span class="sec-no">01</span>
-        <span class="sec-meta">
-          <h2>닥터배 소개 및 입점 가이드 <span class="sec-tag tag-send">첫 문의 원장님 전달용</span></h2>
-          <p>브랜드 스토리와 페이스 라인업 6종, 마이크로젝션 입점 절차까지 — 처음 문의 주신 원장님께 가장 먼저 보내드리는 링크</p>
-        </span>
+    <!-- ================= 고객용 ================= -->
+    <div class="grp grp-cust">
+      <p class="grp-label">고객에게 보여드리는 자료</p>
+      <a class="sec sec-cust seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
+          <span class="sec-no">00</span>
+          <span class="sec-meta">
+            <h2>고객 상담용 자료 <span class="sec-tag tag-open">고객 공개 · 설명용</span></h2>
+            <p>관리실에서 고객님께 직접 보여드리는 페이지</p>
+          </span>
         <span class="sec-go">바로가기</span>
       </a>
-      <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/drbae-guide/">복사</button>
     </div>
 
-    <div class="sec linkrow sec-share">
-      <a class="seclink" href="https://baelab-create.github.io/drbae-lineup/" target="_blank" rel="noopener">
-        <span class="sec-no">02</span>
-        <span class="sec-meta">
-          <h2>제품 라인업 전성분 상세 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span> <span class="sec-tag tag-deep">심화 학습용</span></h2>
-          <p>페이스 6종 · 두피 3종의 전성분과 핵심 원료, 조합 설계 의도까지 — 더 깊이 공부하고 싶은 원장님께 전달드리는 자료</p>
-        </span>
-        <span class="sec-go">바로가기</span>
-      </a>
-      <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/drbae-lineup/">복사</button>
-    </div>
-
-    <div class="sec linkrow sec-share">
-      <a class="seclink" href="https://baelab-create.github.io/Dr.BAE_review/" target="_blank" rel="noopener">
-        <span class="sec-no">03</span>
-        <span class="sec-meta">
-          <h2>원장님들 관리 레시피 공유 <span class="sec-tag tag-send">관리 프로그램 공유용</span></h2>
-          <p>실제 운영 중인 원장님 후기 65건을 대표 관리 20종으로 정리 — 다양한 관리 프로그램을 찾으시는 원장님께 전달드리는 레시피 모음</p>
-        </span>
-        <span class="sec-go">바로가기</span>
-      </a>
-      <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Dr.BAE_review/">복사</button>
-    </div>
-
-    <div class="sec linkrow">
-      <a class="seclink" href="https://baelab-create.github.io/Microjection_Skin-care/" target="_blank" rel="noopener">
-        <span class="sec-no">04</span>
-        <span class="sec-meta">
-          <h2>마이크로젝션 — 스킨케어 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
-          <p>화장품의 밀착과 균일한 펴바름을 돕는 비침습 도포 보조 어플리케이터 페이스 운용 가이드</p>
-        </span>
-        <span class="sec-go">바로가기</span>
-      </a>
-      <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Microjection_Skin-care/">복사</button>
-    </div>
-
-    <div class="sec linkrow">
-      <a class="seclink" href="https://baelab-create.github.io/Scalp_Care/" target="_blank" rel="noopener">
-        <span class="sec-no">05</span>
-        <span class="sec-meta">
-          <h2>마이크로젝션 — 두피케어 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
-          <p>비침습 도포 보조 기술을 두피 관리에 적용한 프로그램 구성 — 두피 에스테틱 전문가 가이드</p>
-        </span>
-        <span class="sec-go">바로가기</span>
-      </a>
-      <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Scalp_Care/">복사</button>
-    </div>
-
-    <div class="sec linkrow">
-      <a class="seclink" href="https://smartstore.naver.com/drbae/products/13739866119" target="_blank" rel="noopener">
-        <span class="sec-no">06</span>
-        <span class="sec-meta">
-          <h2>세트 구성 &amp; 무료 교육 신청 <span class="sec-tag tag-ext">네이버 스마트스토어 ↗</span></h2>
-          <p>닥터배 세트 구성 확인과 무료 교육 신청을 한 번에 — 공식 스마트스토어 페이지</p>
-        </span>
-        <span class="sec-go">바로가기</span>
-      </a>
-      <button class="btn-copy row-copy" data-url="https://smartstore.naver.com/drbae/products/13739866119">복사</button>
-    </div>
-
-    <p class="sec-note">※ 닥터배 프로페셔널 파트너 리스트는 추후 업데이트 예정입니다.</p>
-
-    <!-- ================= 부록 관리 프로그램 · 적용 가이드 ================= -->
-    <details class="sec sec-appx">
-      <summary>
-        <span class="sec-no">부록</span>
-        <span class="sec-meta">
-          <h2>관리 프로그램 &amp; 적용 가이드 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
-          <p>필요할 때 찾아보는 참고 자료</p>
-        </span>
-        <span class="sec-count">3개</span>
-        <span class="sec-click"></span>
-      </summary>
-      <div class="sec-body">
-        <div class="grid">
-
-          <article class="card">
-            <a class="card-link" href="https://baelab-create.github.io/drbae-guide/liquidmask" target="_blank" rel="noopener">
-              <span class="thumb"><img src="assets/thumb-liquidmask.jpg" alt="리퀴드 마스크 소프트필 · 칼리파우더 적용 순서 가이드" loading="lazy"></span>
-              <div class="card-body">
-                <h3>리퀴드 마스크 &amp; 칼리파우더</h3>
-                <p>소프트필 두 갈래 적용법과 칼리파우더 부스팅 옵션을 짧게 정리한 간단 설명자료</p>
-                <div class="card-prods">
-                  <span class="dbp dbp-liquid"><i></i>리퀴드 마스크</span>
-                  <span class="dbp dbp-cali"><i></i>칼리파우더</span>
-                </div>
-              </div>
-            </a>
-            <div class="card-foot">
-              <a class="btn-open" href="https://baelab-create.github.io/drbae-guide/liquidmask" target="_blank" rel="noopener">열기</a>
-              <button class="btn-copy" data-url="https://baelab-create.github.io/drbae-guide/liquidmask">링크 복사</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <a class="card-link" href="https://baelab-create.github.io/Troubled-skin/" target="_blank" rel="noopener">
-              <span class="thumb"><img src="assets/thumb-troubled.jpg" alt="문제성 피부 4주 로테이션 관리 프로그램" loading="lazy"></span>
-              <div class="card-body">
-                <h3>문제성 피부 관리 프로그램</h3>
-                <p>피부장벽이 예민해진 트러블 성향 피부를 위한 4주 로테이션 구성 — 닥터배 라인업 활용안</p>
-                <div class="card-prods">
-                  <span class="dbp dbp-pink"><i></i>핑크</span>
-                  <span class="dbp dbp-brown"><i></i>토코포르테</span>
-                  <span class="dbp dbp-gel"><i></i>에센스겔</span>
-                </div>
-              </div>
-            </a>
-            <div class="card-foot">
-              <a class="btn-open" href="https://baelab-create.github.io/Troubled-skin/" target="_blank" rel="noopener">열기</a>
-              <button class="btn-copy" data-url="https://baelab-create.github.io/Troubled-skin/">링크 복사</button>
-            </div>
-          </article>
-
-          <article class="card">
-            <a class="card-link" href="https://baelab-create.github.io/summer_promotion/" target="_blank" rel="noopener">
-              <span class="thumb"><img src="assets/thumb-summer.jpg" alt="여름 피부열 케어 프로그램" loading="lazy"></span>
-              <div class="card-body">
-                <h3>여름 · 피부열 케어 프로그램</h3>
-                <p>에어건 기화열 쿨링을 활용한 여름철 피부열 케어 프로그램 4종 교육 자료</p>
-                <div class="card-prods">
-                  <span class="dbp dbp-brown"><i></i>토코포르테</span>
-                  <span class="dbp dbp-gel"><i></i>에센스겔</span>
-                  <span class="dbp dbp-pink"><i></i>핑크</span>
-                </div>
-              </div>
-            </a>
-            <div class="card-foot">
-              <a class="btn-open" href="https://baelab-create.github.io/summer_promotion/" target="_blank" rel="noopener">열기</a>
-              <button class="btn-copy" data-url="https://baelab-create.github.io/summer_promotion/">링크 복사</button>
-            </div>
-          </article>
-
-        </div>
+    <!-- ================= 01~03 원장님께 전달드리는 자료 ================= -->
+    <div class="grp grp-share">
+      <p class="grp-label">원장님께 전달드리는 자료</p>
+      <div class="sec linkrow sec-share">
+        <a class="seclink" href="https://baelab-create.github.io/drbae-guide/" target="_blank" rel="noopener">
+          <span class="sec-no">01</span>
+          <span class="sec-meta">
+            <h2>닥터배 소개 및 입점 가이드 <span class="sec-tag tag-send">첫 문의 원장님 전달용</span></h2>
+            <p>브랜드 스토리와 페이스 라인업 6종, 마이크로젝션 입점 절차까지 — 처음 문의 주신 원장님께 가장 먼저 보내드리는 링크</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/drbae-guide/">복사</button>
       </div>
-    </details>
 
+      <div class="sec linkrow sec-share">
+        <a class="seclink" href="https://baelab-create.github.io/drbae-lineup/" target="_blank" rel="noopener">
+          <span class="sec-no">02</span>
+          <span class="sec-meta">
+            <h2>제품 라인업 전성분 상세 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span> <span class="sec-tag tag-deep">심화 학습용</span></h2>
+            <p>페이스 6종 · 두피 3종의 전성분과 핵심 원료, 조합 설계 의도까지 — 더 깊이 공부하고 싶은 원장님께 전달드리는 자료</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/drbae-lineup/">복사</button>
+      </div>
+
+      <div class="sec linkrow sec-share">
+        <a class="seclink" href="https://baelab-create.github.io/Dr.BAE_review/" target="_blank" rel="noopener">
+          <span class="sec-no">03</span>
+          <span class="sec-meta">
+            <h2>원장님들 관리 레시피 공유 <span class="sec-tag tag-send">관리 프로그램 공유용</span></h2>
+            <p>실제 운영 중인 원장님 후기 65건을 대표 관리 20종으로 정리 — 다양한 관리 프로그램을 찾으시는 원장님께 전달드리는 레시피 모음</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Dr.BAE_review/">복사</button>
+      </div>
+    </div>
+
+    <!-- ================= 04~05 마이크로젝션 교육자료 ================= -->
+    <div class="grp grp-edu">
+      <p class="grp-label">마이크로젝션 기기 교육자료</p>
+      <div class="sec linkrow">
+        <a class="seclink" href="https://baelab-create.github.io/Microjection_Skin-care/" target="_blank" rel="noopener">
+          <span class="sec-no">04</span>
+          <span class="sec-meta">
+            <h2>마이크로젝션 — 스킨케어 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
+            <p>화장품의 밀착과 균일한 펴바름을 돕는 비침습 도포 보조 어플리케이터 페이스 운용 가이드</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Microjection_Skin-care/">복사</button>
+      </div>
+
+      <div class="sec linkrow">
+        <a class="seclink" href="https://baelab-create.github.io/Scalp_Care/" target="_blank" rel="noopener">
+          <span class="sec-no">05</span>
+          <span class="sec-meta">
+            <h2>마이크로젝션 — 두피케어 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
+            <p>비침습 도포 보조 기술을 두피 관리에 적용한 프로그램 구성 — 두피 에스테틱 전문가 가이드</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/Scalp_Care/">복사</button>
+      </div>
+    </div>
+
+    <!-- ================= STEP 1~4 구매 · 납품 링크 ================= -->
+    <div class="grp grp-step">
+      <p class="grp-label">구매 · 납품 링크 — 네이버 스마트스토어</p>
+      <div class="sec linkrow sec-step">
+        <a class="seclink" href="https://m.site.naver.com/2aTLN" target="_blank" rel="noopener">
+          <span class="sec-no"><small>STEP</small>1</span>
+          <span class="sec-meta">
+            <h2>첫 데모 · 테스트용 구매 <span class="sec-tag tag-ext">네이버 스마트스토어 ↗</span></h2>
+            <p>처음 도입을 검토하시는 원장님의 데모 · 테스트용 구매 링크</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://m.site.naver.com/2aTLN">복사</button>
+      </div>
+
+      <div class="sec linkrow sec-step">
+        <a class="seclink" href="https://m.site.naver.com/2aTM0" target="_blank" rel="noopener">
+          <span class="sec-no"><small>STEP</small>2</span>
+          <span class="sec-meta">
+            <h2>라인업 피부 &amp; 두피 납품 <span class="sec-tag tag-ext">네이버 스마트스토어 ↗</span></h2>
+            <p>페이스 · 두피 라인업 납품 주문 링크</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://m.site.naver.com/2aTM0">복사</button>
+      </div>
+
+      <div class="sec linkrow sec-step">
+        <a class="seclink" href="https://smartstore.naver.com/drbae/products/13739866119" target="_blank" rel="noopener">
+          <span class="sec-no"><small>STEP</small>3</span>
+          <span class="sec-meta">
+            <h2>파트너 무료 교육 &amp; 할인 묶음 세트 <span class="sec-tag tag-ext">네이버 스마트스토어 ↗</span></h2>
+            <p>세트 구성 확인과 무료 교육 신청을 한 번에 — 공식 스마트스토어 페이지</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://smartstore.naver.com/drbae/products/13739866119">복사</button>
+      </div>
+
+      <div class="sec linkrow sec-step">
+        <a class="seclink" href="https://smartstore.naver.com/drbae/products/10659438015" target="_blank" rel="noopener">
+          <span class="sec-no"><small>STEP</small>4</span>
+          <span class="sec-meta">
+            <h2>마이크로젝션 납품 <span class="sec-tag tag-ext">네이버 스마트스토어 ↗</span></h2>
+            <p>마이크로젝션 기기 납품 주문 링크</p>
+          </span>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://smartstore.naver.com/drbae/products/10659438015">복사</button>
+      </div>
+
+      <p class="sec-note">※ 닥터배 프로페셔널 파트너 리스트는 추후 업데이트 예정입니다.</p>
+    </div>
+
+    <!-- ================= 부록 ================= -->
+    <div class="grp grp-appx">
+      <p class="grp-label">부록 — 참고 자료</p>
+      <!-- ================= 부록 관리 프로그램 · 적용 가이드 ================= -->
+      <details class="sec sec-appx">
+        <summary>
+          <span class="sec-no">부록</span>
+          <span class="sec-meta">
+            <h2>관리 프로그램 &amp; 적용 가이드 <span class="sec-tag tag-priv">비공개 · 원장님 교육자료</span></h2>
+            <p>필요할 때 찾아보는 참고 자료</p>
+          </span>
+          <span class="sec-count">3개</span>
+          <span class="sec-click"></span>
+        </summary>
+        <div class="sec-body">
+          <div class="grid">
+
+            <article class="card">
+              <a class="card-link" href="https://baelab-create.github.io/drbae-guide/liquidmask" target="_blank" rel="noopener">
+                <span class="thumb"><img src="assets/thumb-liquidmask.jpg" alt="리퀴드 마스크 소프트필 · 칼리파우더 적용 순서 가이드" loading="lazy"></span>
+                <div class="card-body">
+                  <h3>리퀴드 마스크 &amp; 칼리파우더</h3>
+                  <p>소프트필 두 갈래 적용법과 칼리파우더 부스팅 옵션을 짧게 정리한 간단 설명자료</p>
+                  <div class="card-prods">
+                    <span class="dbp dbp-liquid"><i></i>리퀴드 마스크</span>
+                    <span class="dbp dbp-cali"><i></i>칼리파우더</span>
+                  </div>
+                </div>
+              </a>
+              <div class="card-foot">
+                <a class="btn-open" href="https://baelab-create.github.io/drbae-guide/liquidmask" target="_blank" rel="noopener">열기</a>
+                <button class="btn-copy" data-url="https://baelab-create.github.io/drbae-guide/liquidmask">링크 복사</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <a class="card-link" href="https://baelab-create.github.io/Troubled-skin/" target="_blank" rel="noopener">
+                <span class="thumb"><img src="assets/thumb-troubled.jpg" alt="문제성 피부 4주 로테이션 관리 프로그램" loading="lazy"></span>
+                <div class="card-body">
+                  <h3>문제성 피부 관리 프로그램</h3>
+                  <p>피부장벽이 예민해진 트러블 성향 피부를 위한 4주 로테이션 구성 — 닥터배 라인업 활용안</p>
+                  <div class="card-prods">
+                    <span class="dbp dbp-pink"><i></i>핑크</span>
+                    <span class="dbp dbp-brown"><i></i>토코포르테</span>
+                    <span class="dbp dbp-gel"><i></i>에센스겔</span>
+                  </div>
+                </div>
+              </a>
+              <div class="card-foot">
+                <a class="btn-open" href="https://baelab-create.github.io/Troubled-skin/" target="_blank" rel="noopener">열기</a>
+                <button class="btn-copy" data-url="https://baelab-create.github.io/Troubled-skin/">링크 복사</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <a class="card-link" href="https://baelab-create.github.io/summer_promotion/" target="_blank" rel="noopener">
+                <span class="thumb"><img src="assets/thumb-summer.jpg" alt="여름 피부열 케어 프로그램" loading="lazy"></span>
+                <div class="card-body">
+                  <h3>여름 · 피부열 케어 프로그램</h3>
+                  <p>에어건 기화열 쿨링을 활용한 여름철 피부열 케어 프로그램 4종 교육 자료</p>
+                  <div class="card-prods">
+                    <span class="dbp dbp-brown"><i></i>토코포르테</span>
+                    <span class="dbp dbp-gel"><i></i>에센스겔</span>
+                    <span class="dbp dbp-pink"><i></i>핑크</span>
+                  </div>
+                </div>
+              </a>
+              <div class="card-foot">
+                <a class="btn-open" href="https://baelab-create.github.io/summer_promotion/" target="_blank" rel="noopener">열기</a>
+                <button class="btn-copy" data-url="https://baelab-create.github.io/summer_promotion/">링크 복사</button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </details>
+    </div>
 
   </div>
 </main>
