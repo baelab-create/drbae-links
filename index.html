@@ -386,10 +386,12 @@ details[open] .dbc-native,
   @media(max-width:520px){ .intro{padding:18px 16px;} }
 
   /* ---------- 바로가기 목록 (평면 구조) ---------- */
-  a.seclink.sec-cust{
-    border:1px solid #e6d7b3;border-radius:16px;
-    box-shadow:0 1px 2px rgba(143,106,34,.05);
-  }
+  .linkrow.sec-cust{border-color:#e6d7b3;background:linear-gradient(180deg,#fffdf8,#fff);}
+  .linkrow.sec-cust:hover{border-color:#dcc48f;box-shadow:0 6px 22px rgba(143,106,34,.14);}
+  .linkrow.sec-cust > a.seclink:hover{background:#fffaf0;}
+  .linkrow.sec-cust .sec-go{background:var(--gold-ink);border-color:var(--gold-ink);}
+  .linkrow.sec-cust .row-copy{background:#f6edda;border-color:#e6d7b3;color:var(--gold-ink);}
+  .linkrow.sec-cust .row-copy:hover{background:#f0e3c8;}
   .linkrow{
     display:flex;align-items:stretch;background:var(--card);
     border:1px solid var(--line);border-radius:16px;overflow:hidden;
@@ -507,14 +509,17 @@ details[open] .dbc-native,
     <!-- ================= 고객용 ================= -->
     <div class="grp grp-cust">
       <p class="grp-label">고객에게 보여드리는 자료</p>
-      <a class="sec sec-cust seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
+      <div class="sec linkrow sec-cust">
+        <a class="seclink" href="https://baelab-create.github.io/drbae-customer/" target="_blank" rel="noopener">
           <span class="sec-no">00</span>
           <span class="sec-meta">
             <h2>고객 상담용 자료 <span class="sec-tag tag-open">고객 공개 · 설명용</span></h2>
             <p>관리실에서 고객님께 직접 보여드리는 페이지</p>
           </span>
-        <span class="sec-go">바로가기</span>
-      </a>
+          <span class="sec-go">바로가기</span>
+        </a>
+        <button class="btn-copy row-copy" data-url="https://baelab-create.github.io/drbae-customer/">복사</button>
+      </div>
     </div>
 
     <!-- ================= 01~03 원장님께 전달드리는 자료 ================= -->
